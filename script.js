@@ -1,8 +1,9 @@
 //ROCK PAPER SCISSORS
 const choices = ["rock","paper","scissors"];
 let playerScore=0,computerScore=0;
-let roundCounter;
 let playerChoice= "";
+let winner="";
+let roundsMax=5;
 
 //computer random choice
 function getComputerChoice()
@@ -10,7 +11,7 @@ function getComputerChoice()
     return choices[Math.floor(Math.random()*choices.length)];
 }
 //round result
-function getWinner(p1,p2)
+function getWinner(p1,p2)   
 {
     let result;
     if (p1===p2)
@@ -36,40 +37,31 @@ function getWinner(p1,p2)
 function playRound(playerChoice)
 {
     let computerChoice = getComputerChoice();
-    let winner = (getWinner(playerChoice,computerChoice)+"\nPlayer: "+playerScore+"\nComputer: "+computerScore);
-    return winner
+    winner = (getWinner(playerChoice,computerChoice)+"\nPlayer: "+playerScore+"\nComputer: "+computerScore);
+    return winner;
 }
 
-function game()
+function game(e)
 {
-    let roundsMax = 10 //prompt("Winning points: ");
     if(Math.max(playerScore,computerScore)<roundsMax)
         {
-            playRound(playerChoice);
+            playRound(e.target.id);
             console.log(winner);
         }
     if(playerScore==roundsMax)
         {
             console.log("The final winner is the PLAYER!!")
         }
-    else
+    if(computerScore==roundsMax)
         {
             console.log("The final winner is the COMPUTER!! :(")
         }
 }
 
-function getPlayerChoice(){
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => button.addEventListener("click",game));
 
-    let buttons = document.querySelectorAll("button");
-    
-    for(button of buttons) {
-        button.addEventListener("click", function(e){
-            playerChoice = (e.target.id);
-            console.log(playerChoice)
-        });
-    }
-}
-(getPlayerChoice())
+
 
 
 
