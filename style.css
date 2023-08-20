@@ -27,21 +27,29 @@ body{
     border: 0px;
 }
 
+.counter
+{
+    padding: 1rem 3rem;
+    background-color: #494153;
+}
+
 .containerResult
 {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-basis: 40%;
+    gap: 3rem;
+
 }
 
-.resultDisplay
+#resultDisplay
 {
     padding: 1rem 3rem;
     background-color:#494153;
 }
 
-.button, .resultDisplay
+.button, #resultDisplay ,.counter
 {
     color: #c2baba;
 }

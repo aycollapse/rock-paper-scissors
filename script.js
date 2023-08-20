@@ -10,7 +10,8 @@ function getComputerChoice()
 {
     return choices[Math.floor(Math.random()*choices.length)];
 }
-//round result
+
+//round winner
 function getWinner(p1,p2)   
 {
     let result;
@@ -31,9 +32,12 @@ function getWinner(p1,p2)
         result="Computer WINS! :("
         computerScore+=1;
     }
-    return result;
+    document.getElementById("resultDisplay").textContent=result;
+    document.getElementById("playerScoreDisplay").textContent=playerScore;
+    document.getElementById("computerScoreDisplay").textContent=computerScore;
 }
-//round
+
+//single round
 function playRound(playerChoice)
 {
     let computerChoice = getComputerChoice();
@@ -41,23 +45,27 @@ function playRound(playerChoice)
     return winner;
 }
 
+//main
 function game(e)
 {
     if(Math.max(playerScore,computerScore)<roundsMax)
         {
-            playRound(e.target.id);
-            console.log(winner);
+            console.log(e.target.id);
+            console.log(getComputerChoice());
+            getWinner(e.target.id,getComputerChoice());
+            console.log(playerScore+" "+computerScore);
         }
     if(playerScore==roundsMax)
         {
-            console.log("The final winner is the PLAYER!!")
+            document.getElementById("resultDisplay").textContent="The final winner is the PLAYER!!"
         }
     if(computerScore==roundsMax)
         {
-            console.log("The final winner is the COMPUTER!! :(")
+            document.getElementById("resultDisplay").textContent="The final winner is the COMPUTER :("
         }
 }
 
+//start
 const buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener("click",game));
 
