@@ -1,5 +1,5 @@
 body{
-    background-color: #312b33;
+    background-color: #1b1b20;
     font-family: "Rubik";
     height: 100vh;
 }
@@ -22,15 +22,24 @@ body{
 
 .button 
 {
-    padding: 2rem 3rem;
-    background-color: #846671;
+    font-size: 1rem;
+    box-sizing: content-box;
+    height: 5rem;
+    width: 15rem;
+    background-color: #292736;
     border: 0px;
+}
+
+.button:hover 
+{
+    color:  white;
+    text-shadow: 0 0 3px white;
 }
 
 .counter
 {
     padding: 1rem 3rem;
-    background-color: #494153;
+    background-color: #2b2630;
 }
 
 .containerResult
@@ -46,7 +55,7 @@ body{
 #resultDisplay
 {
     padding: 1rem 3rem;
-    background-color:#494153;
+    background-color:#2b2630;
 }
 
 .button, #resultDisplay ,.counter

@@ -3,7 +3,12 @@ const choices = ["rock","paper","scissors"];
 let playerScore=0,computerScore=0;
 let playerChoice= "";
 let winner="";
-let roundsMax=5;
+let roundsMax=3;
+
+function endgame()
+{
+    
+}
 
 //computer random choice
 function getComputerChoice()
@@ -63,6 +68,9 @@ function game(e)
         {
             document.getElementById("resultDisplay").textContent="The final winner is the COMPUTER :("
         }
+    //end
+
+
 }
 
 //start
